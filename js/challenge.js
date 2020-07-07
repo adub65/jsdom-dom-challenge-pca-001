@@ -30,9 +30,15 @@ plus.addEventListener("click", function(e){
 
 // heart button
 love.addEventListener("click", function(e){
-  let obj = document.getElementById(`${counter.innerText}`);
-  obj ? obj.children[0].innerText++ :
-  likes.innerHTML += `<li id=${counter.innerText}>${counter.innerText} is liked <span id=${counter.innerText}>1</span> times.</li>`
+  let numberLiked = document.getElementById(`${counter.innerText}`);
+  if (numberLiked) {
+     obj.children[0].innerText++
+  } else {
+  likes.innerHTML +=
+   `<li id=${counter.innerText}> is liked
+      <span>1</span> times.
+   </li>`
+  }
 });
 
  // pause button
@@ -45,8 +51,7 @@ love.addEventListener("click", function(e){
       minus.disabled = true;
       love.disabled = true;
       submit.disabled = true;
-  }
-  else {
+  } else {
       count = setInterval(function () {
           counter.innerText++;
       }, 1000);
